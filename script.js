@@ -20,12 +20,6 @@ function getCoords(){
     })
 }
 
-console.log(getCoords());
-
-// How will you add the user's location to the map?
-// I think I should wait to instantiate my map until after I have the coordinates!
-// Then I can use the .setView method to go to those coordinates at the start.
-
 // How will you get the selected business type from the user?
 // Use an event listener for user interaction with the dropdown.
 
@@ -33,4 +27,21 @@ console.log(getCoords());
 // I know I can add markers, so I'll do that. 
 // I'll have to see what kind of info I get from FourSquare and parse it.
 
-console.log(L)
+let map
+
+async function main () {
+
+    // How will you add the user's location to the map?
+    // I think I should wait to instantiate my map until after I have the coordinates!
+    // Then I can use the .setView method to go to those coordinates at the start.
+    const location = await getCoords()
+    const latLong = [location.coords.latitude, location.coords.longitude]
+    map = L.map('map-div').setView(latLong, 13)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+    var marker = L.marker(latLong).addTo(map);
+}
+
+main()

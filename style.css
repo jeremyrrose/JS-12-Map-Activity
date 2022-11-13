@@ -1,4 +1,4 @@
-#map {
-    height: 180px;
-    background-color: green;
+#map-div {
+    height: 480px;
+    width: 640px;
 }
