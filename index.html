@@ -1,9 +1,29 @@
 <html>
     <head>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.2/dist/leaflet.css"
+        integrity="sha256-sA+zWATbFveLLNqWO2gtiw3HL/lh1giY/Inf1BJ0z14="
+        crossorigin=""/>
+        <link rel="stylesheet" href="style.css" />
+
+        <!-- JS -->
+        <script src="https://unpkg.com/leaflet@1.9.2/dist/leaflet.js"
+        integrity="sha256-o9N1jGDZrf5tS+Ft4gbIK7mYMipq9lqpVJ91xHSyKhg="
+        crossorigin=""></script>
         <script src="credentials.js"></script>
-        <script src="script.js"></script>
+        <script defer src="script.js"></script>
+
     </head>
     <body>
-
+        <div id="business-type-selector">
+            <select id="business-type">
+                <option value="coffee">Coffee shops</option>
+                <option value="hotels">Hotels</option>
+                <option value="markets">Markets</option>
+            </select>
+            <button type="button">SUBMIT</button>
+        </div>
+        <div id="map"></div>
     </body>
 </html>
